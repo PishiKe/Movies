@@ -2,6 +2,7 @@ package com.pishi.movieappusingjetpackcompose.ui.theme
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -16,6 +17,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.pishi.movieappusingjetpackcompose.R
+import com.pishi.movieappusingjetpackcompose.ui.theme.model.getHorizontalList1
 
 @Composable
 fun HomePage(){
@@ -84,12 +86,13 @@ fun HomePage(){
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(16.dp)
+                    .padding(start = 8.dp, bottom = 16.dp, top = 16.dp,)
             ) {
                 Column(
                     modifier = Modifier
                         .wrapContentWidth()
-                        .weight(0.5f)
+                        .weight(0.5f),
+                    horizontalAlignment = Alignment.Start
                 ) {
                     Text(
                         text = "Recommended Movie",
@@ -109,6 +112,21 @@ fun HomePage(){
                         color = primaryLightColor,
                         fontFamily = FontFamily(Font(R.font.roboto_bold)),
                         fontSize = 14.sp
+                    )
+                }
+            }
+            
+            LazyRow(
+                modifier = Modifier
+                    .height(300.dp),
+                horizontalArrangement = Arrangement.spacedBy(16.dp)
+            ){
+                items(getHorizontalList1.size){ index ->
+                    MovieItem(
+                        getHorizontalList1[index].img?:0,
+                        getHorizontalList1[index].movieTitle!!,
+                        getHorizontalList1[index].rating!!,
+                        getHorizontalList1[index].genre!!
                     )
                 }
             }

@@ -5,13 +5,13 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -26,8 +26,8 @@ fun MovieItem(
 ){
     Column(
         modifier = Modifier
-            .height(200.dp)
-            .width(100.dp)
+            .height(300.dp)
+            .width(150.dp)
             .clip(RoundedCornerShape(16.dp))
     ) {
         Column(
@@ -38,7 +38,7 @@ fun MovieItem(
             Image(
                 painter = painterResource(id = img),
                 contentDescription = "Movie Poster Image",
-                contentScale = ContentScale.Fit
+                contentScale = ContentScale.FillBounds
             )
         }
         Column(
@@ -53,26 +53,28 @@ fun MovieItem(
             ) {
                 Text(
                     text = movieTitle,
-                    fontSize = 14.sp,
+                    fontSize = 18.sp,
                     fontFamily = FontFamily(Font(R.font.roboto_bold))
                 )
             }
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(top = 4.dp, start = 4.dp, end = 4.dp)
+                    .padding(top = 4.dp, start = 4.dp, end = 4.dp),
+                verticalAlignment = Alignment.CenterVertically
             ) {
                 Image(
                     painter = painterResource(id = R.drawable.ic_star__rating),
                     contentDescription = "Rating",
                     modifier = Modifier
-                        .size(8.dp)
+                        .size(16.dp)
                 )
 
                 Text(
                     text = rating,
-                    fontSize = 6.sp,
-                    fontFamily = FontFamily(Font(R.font.roboto_light))
+                    fontSize = 10.sp,
+                    fontFamily = FontFamily(Font(R.font.roboto_light)),
+                    modifier = Modifier.padding(start = 4.dp)
                 )
             }
             Row(
@@ -82,7 +84,7 @@ fun MovieItem(
             ) {
                 Text(
                     text = genre,
-                    fontSize = 8.sp,
+                    fontSize = 10.sp,
                     fontFamily = FontFamily(Font(R.font.roboto_light))
                 )
             }

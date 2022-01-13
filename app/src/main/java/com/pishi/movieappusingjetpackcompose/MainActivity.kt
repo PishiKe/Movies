@@ -8,6 +8,7 @@ import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import com.pishi.movieappusingjetpackcompose.ui.theme.HomePage
 import com.pishi.movieappusingjetpackcompose.ui.theme.MovieAppUsingJetpackComposeTheme
 
 class MainActivity : ComponentActivity() {
@@ -17,7 +18,7 @@ class MainActivity : ComponentActivity() {
             MovieAppUsingJetpackComposeTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
-
+                    HomePage()
                 }
             }
         }
