@@ -86,26 +86,25 @@ fun HomePage(){
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(start = 8.dp, bottom = 16.dp, top = 16.dp,)
+                    .padding(bottom = 16.dp, top = 16.dp, end = 8.dp)
             ) {
                 Column(
                     modifier = Modifier
-                        .wrapContentWidth()
-                        .weight(0.5f),
-                    horizontalAlignment = Alignment.Start
+                        .weight(0.7f)
+                        .padding(start = 8.dp)
                 ) {
                     Text(
-                        text = "Recommended Movie",
+                        text = "Recommended Movies",
                         color = Color.Black,
                         fontFamily = FontFamily(Font(R.font.roboto_bold)),
-                        fontSize = 18.sp
+                        fontSize = 20.sp
                     )
                 }
                 Column(
                     modifier = Modifier
-                        .weight(0.5f),
+                        .weight(0.3f),
                     horizontalAlignment = Alignment.End,
-                    verticalArrangement = Arrangement.Bottom
+                    verticalArrangement = Arrangement.Center
                 ) {
                     Text(
                         text = "View All",
@@ -127,6 +126,42 @@ fun HomePage(){
                         getHorizontalList1[index].movieTitle!!,
                         getHorizontalList1[index].rating!!,
                         getHorizontalList1[index].genre!!
+                    )
+                }
+            }
+        }
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+        ) {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(bottom = 16.dp, top = 16.dp, end = 8.dp)
+            ) {
+                Column(
+                    modifier = Modifier
+                        .weight(0.7f)
+                        .padding(start = 8.dp)
+                ) {
+                    Text(
+                        text = "More Movies",
+                        color = Color.White,
+                        fontFamily = FontFamily(Font(R.font.roboto_bold)),
+                        fontSize = 20.sp
+                    )
+                }
+                Column(
+                    modifier = Modifier
+                        .weight(0.3f),
+                    horizontalAlignment = Alignment.End,
+                    verticalArrangement = Arrangement.Bottom
+                ) {
+                    Text(
+                        text = "View All",
+                        color = Color.Black,
+                        fontFamily = FontFamily(Font(R.font.roboto_bold)),
+                        fontSize = 14.sp
                     )
                 }
             }
