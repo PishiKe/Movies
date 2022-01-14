@@ -18,7 +18,7 @@ import androidx.compose.ui.unit.sp
 import com.pishi.movieappusingjetpackcompose.R
 
 @Composable
-fun MovieItem(
+fun MovieItemBig(
     img : Int,
     movieTitle : String,
     rating : String,
@@ -28,7 +28,7 @@ fun MovieItem(
         modifier = Modifier
             .height(300.dp)
             .width(150.dp)
-            .clip(RoundedCornerShape(16.dp))
+            .clip( RoundedCornerShape(16.dp)),
     ) {
         Column(
             modifier = Modifier
@@ -96,7 +96,7 @@ fun MovieItem(
 @Preview (showBackground = true)
 @Composable
 fun MovieItemPreview(){
-    MovieItem(
+    MovieItemBig(
         img = R.drawable.joker,
         movieTitle = "Joker" ,
         rating = "7/10",

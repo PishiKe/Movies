@@ -18,9 +18,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.pishi.movieappusingjetpackcompose.R
 import com.pishi.movieappusingjetpackcompose.model.getMovieList
+import com.pishi.movieappusingjetpackcompose.model.getTvList
 
 @Composable
-fun MoviesHomePage(){
+fun TvSeriesHomePage(){
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -34,46 +35,46 @@ fun MoviesHomePage(){
 
         ) {
 
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(top = 50.dp, start = 8.dp, end = 8.dp)
-        ) {
-            Text(
-                text = "All",
-                color = secondaryTextColor,
-                modifier = Modifier.weight(0.2f),
-                textAlign = TextAlign.Center,
-                fontFamily = FontFamily(Font(R.font.roboto_medium))
-            )
-            Text(
-                text = "Movies",
-                color = secondaryTextColor,
-                modifier = Modifier.weight(0.2f),
-                textAlign = TextAlign.Center,
-                fontFamily = FontFamily(Font(R.font.roboto_medium))
-            )
-            Text(
-                text = "TV Series",
-                color = secondaryTextColor,
-                modifier = Modifier.weight(0.2f),
-                textAlign = TextAlign.Center,
-                fontFamily = FontFamily(Font(R.font.roboto_medium))
-            )
-            Text(
-                text = "Events",
-                color = secondaryTextColor,
-                modifier = Modifier.weight(0.2f),
-                textAlign = TextAlign.Center,
-                fontFamily = FontFamily(Font(R.font.roboto_medium))
-            )
-            Text(
-                text = "Activities",
-                color = secondaryTextColor,
-                modifier = Modifier.weight(0.2f),
-                textAlign = TextAlign.Center,
-                fontFamily = FontFamily(Font(R.font.roboto_medium))
-            )
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 50.dp, start = 8.dp, end = 8.dp)
+            ) {
+                Text(
+                    text = "All",
+                    color = secondaryTextColor,
+                    modifier = Modifier.weight(0.2f),
+                    textAlign = TextAlign.Center,
+                    fontFamily = FontFamily(Font(R.font.roboto_medium))
+                )
+                Text(
+                    text = "Movies",
+                    color = secondaryTextColor,
+                    modifier = Modifier.weight(0.2f),
+                    textAlign = TextAlign.Center,
+                    fontFamily = FontFamily(Font(R.font.roboto_medium))
+                )
+                Text(
+                    text = "TV Series",
+                    color = secondaryTextColor,
+                    modifier = Modifier.weight(0.2f),
+                    textAlign = TextAlign.Center,
+                    fontFamily = FontFamily(Font(R.font.roboto_medium))
+                )
+                Text(
+                    text = "Events",
+                    color = secondaryTextColor,
+                    modifier = Modifier.weight(0.2f),
+                    textAlign = TextAlign.Center,
+                    fontFamily = FontFamily(Font(R.font.roboto_medium))
+                )
+                Text(
+                    text = "Activities",
+                    color = secondaryTextColor,
+                    modifier = Modifier.weight(0.2f),
+                    textAlign = TextAlign.Center,
+                    fontFamily = FontFamily(Font(R.font.roboto_medium))
+                )
             }
         }
         Column(
@@ -94,7 +95,7 @@ fun MoviesHomePage(){
                         .padding(start = 8.dp)
                 ) {
                     Text(
-                        text = "Recommended Movies",
+                        text = "Recommended TvSeries",
                         color = Color.Black,
                         fontFamily = FontFamily(Font(R.font.roboto_bold)),
                         fontSize = 20.sp
@@ -114,18 +115,19 @@ fun MoviesHomePage(){
                     )
                 }
             }
-            
+
             LazyRow(
                 modifier = Modifier
-                    .height(300.dp),
+                    .height(350.dp)
+                    .padding(top = 16.dp),
                 horizontalArrangement = Arrangement.spacedBy(16.dp)
             ){
                 items(getMovieList.size){ index ->
                     MovieItemBig(
-                        getMovieList[index].img?:0,
-                        getMovieList[index].movieTitle!!,
-                        getMovieList[index].rating!!,
-                        getMovieList[index].genre!!
+                        getTvList[index].img?:0,
+                        getTvList[index].tvSeriesTitle!!,
+                        getTvList[index].rating!!,
+                        getTvList[index].genre!!
                     )
                 }
             }
@@ -145,7 +147,7 @@ fun MoviesHomePage(){
                         .padding(start = 8.dp)
                 ) {
                     Text(
-                        text = "More Movies",
+                        text = "More TvShows",
                         color = Color.White,
                         fontFamily = FontFamily(Font(R.font.roboto_bold)),
                         fontSize = 20.sp
@@ -177,8 +179,8 @@ fun MoviesHomePage(){
                 ){
                     items(getMovieList.size){ index ->
                         MovieItemSmall(
-                            img = getMovieList[index].img?:0,
-                            movieTitle = getMovieList[index].movieTitle!!
+                            img = getTvList[index].img?:0,
+                            movieTitle = getTvList[index].tvSeriesTitle!!
                         )
                     }
                 }
@@ -189,8 +191,8 @@ fun MoviesHomePage(){
 
 @Preview(showBackground = true)
 @Composable
-fun HomePagePreview(){
+fun TvSeriesHomePagePreview(){
     MovieAppUsingJetpackComposeTheme {
-        MoviesHomePage()
+        TvSeriesHomePage()
     }
 }
