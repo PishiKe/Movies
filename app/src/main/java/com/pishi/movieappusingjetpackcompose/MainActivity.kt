@@ -7,8 +7,13 @@ import androidx.compose.material.*
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.sp
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.pishi.movieappusingjetpackcompose.navigation.Screen
 import com.pishi.movieappusingjetpackcompose.ui.theme.MoviesHomePage
 import com.pishi.movieappusingjetpackcompose.ui.theme.MovieAppUsingJetpackComposeTheme
+import com.pishi.movieappusingjetpackcompose.ui.theme.TvSeriesHomePage
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,6 +22,9 @@ class MainActivity : ComponentActivity() {
             MovieAppUsingJetpackComposeTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
+
+                    val navController = rememberNavController()
+
                     Scaffold(
                         bottomBar = {
                             BottomNavigation(
@@ -24,7 +32,9 @@ class MainActivity : ComponentActivity() {
                             ) {
                                 BottomNavigationItem(
                                     selected = true,
-                                    onClick = { /*TODO*/ },
+                                    onClick = {
+                                              navController.navigate(Screen.Movies.route)
+                                    },
                                     icon = {
                                         Icon(
                                             painter = painterResource(id = R.drawable.ic_movie_open),
@@ -39,7 +49,7 @@ class MainActivity : ComponentActivity() {
                                 )
                                 BottomNavigationItem(
                                     selected = false,
-                                    onClick = { /*TODO*/ },
+                                    onClick = { navController.navigate(Screen.TvSeries.route)},
                                     icon = {
                                         Icon(
                                             painter = painterResource(id = R.drawable.ic_television_classic),
@@ -55,7 +65,17 @@ class MainActivity : ComponentActivity() {
                             }
                         }
                     ) {
-
+                        NavHost(
+                            navController = navController ,
+                            startDestination = Screen.Movies.route
+                        ){
+                            composable(Screen.Movies.route){
+                                MoviesHomePage()
+                            }
+                            composable(Screen.TvSeries.route){
+                                TvSeriesHomePage()
+                            }
+                        }
                     }
                 }
             }
