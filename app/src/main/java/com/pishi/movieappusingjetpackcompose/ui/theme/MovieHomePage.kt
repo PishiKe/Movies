@@ -29,36 +29,12 @@ fun MoviesHomePage(){
     ) {
         Column(
             modifier = Modifier
-                .background(secondaryDarkColor)
-                .height(100.dp)
+                .background(Color.White)
+                .height(75.dp)
                 .fillMaxWidth()
 
         ) {
-            LazyRow{
-                items(2){ index ->
-                    Row(
-                        verticalAlignment = Alignment.CenterVertically,
-                        modifier = Modifier
-                            .clip(RoundedCornerShape(30.dp))
-                            .background(
-                                if (index == 0) Color.White else secondaryDarkColor
-                            )
-                            .wrapContentWidth()
-                            .padding(start = 15.dp, end = 15.dp, top = 10.dp, bottom = 10.dp)
-                    ) {
-                        Text(
-                            text = when(index){
-                                0 -> "Movies"
-                                1 -> "Series"
-                                else -> "Error" },
-                            color = secondaryTextColor,
-                            textAlign = TextAlign.Center,
-                            fontFamily = FontFamily(Font(R.font.roboto_medium))
 
-                        )
-                    }
-                }
-            }
         }
         Column(
             modifier = Modifier
