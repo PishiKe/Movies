@@ -3,6 +3,7 @@ package com.pishi.movieappusingjetpackcompose.ui.theme
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -33,47 +34,30 @@ fun MoviesHomePage(){
                 .fillMaxWidth()
 
         ) {
+            LazyRow{
+                items(2){ index ->
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        modifier = Modifier
+                            .clip(RoundedCornerShape(30.dp))
+                            .background(
+                                if (index == 0) Color.White else secondaryDarkColor
+                            )
+                            .wrapContentWidth()
+                            .padding(start = 15.dp, end = 15.dp, top = 10.dp, bottom = 10.dp)
+                    ) {
+                        Text(
+                            text = when(index){
+                                0 -> "Movies"
+                                1 -> "Series"
+                                else -> "Error" },
+                            color = secondaryTextColor,
+                            textAlign = TextAlign.Center,
+                            fontFamily = FontFamily(Font(R.font.roboto_medium))
 
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(top = 50.dp, start = 8.dp, end = 8.dp)
-        ) {
-            Text(
-                text = "All",
-                color = secondaryTextColor,
-                modifier = Modifier.weight(0.2f),
-                textAlign = TextAlign.Center,
-                fontFamily = FontFamily(Font(R.font.roboto_medium))
-            )
-            Text(
-                text = "Movies",
-                color = secondaryTextColor,
-                modifier = Modifier.weight(0.2f),
-                textAlign = TextAlign.Center,
-                fontFamily = FontFamily(Font(R.font.roboto_medium))
-            )
-            Text(
-                text = "TV Series",
-                color = secondaryTextColor,
-                modifier = Modifier.weight(0.2f),
-                textAlign = TextAlign.Center,
-                fontFamily = FontFamily(Font(R.font.roboto_medium))
-            )
-            Text(
-                text = "Events",
-                color = secondaryTextColor,
-                modifier = Modifier.weight(0.2f),
-                textAlign = TextAlign.Center,
-                fontFamily = FontFamily(Font(R.font.roboto_medium))
-            )
-            Text(
-                text = "Activities",
-                color = secondaryTextColor,
-                modifier = Modifier.weight(0.2f),
-                textAlign = TextAlign.Center,
-                fontFamily = FontFamily(Font(R.font.roboto_medium))
-            )
+                        )
+                    }
+                }
             }
         }
         Column(
@@ -117,7 +101,8 @@ fun MoviesHomePage(){
             
             LazyRow(
                 modifier = Modifier
-                    .height(300.dp),
+                    .height(300.dp)
+                    .padding(top = 16.dp),
                 horizontalArrangement = Arrangement.spacedBy(16.dp)
             ){
                 items(getMovieList.size){ index ->
