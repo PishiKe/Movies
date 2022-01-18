@@ -2,6 +2,7 @@ package com.pishi.movieappusingjetpackcompose.ui.theme
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
+import androidx.compose.material.Card
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -20,40 +21,43 @@ fun MovieItemSmall(
     img : Int,
     movieTitle : String
 ){
-    Column(
-        modifier = Modifier
-            .height(200.dp)
-            .width(100.dp)
+    Card(
+        elevation = 5.dp
     ) {
         Column(
             modifier = Modifier
-                .fillMaxWidth()
-                .weight(0.8f)
+                .height(200.dp)
+                .width(100.dp)
         ) {
-            Image(
-                painter = painterResource(id = img),
-                contentDescription = "Movie Poster Image",
-                contentScale = ContentScale.FillBounds
-            )
-        }
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .weight(0.2f)
-        ) {
-            Row(
+            Column(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(top = 4.dp, start = 4.dp, end = 4.dp)
+                    .weight(0.8f)
             ) {
-                Text(
-                    text = movieTitle,
-                    fontSize = 14.sp,
-                    fontFamily = FontFamily(Font(R.font.roboto_bold)),
-                    color = Color.White
+                Image(
+                    painter = painterResource(id = img),
+                    contentDescription = "Movie Poster Image",
+                    contentScale = ContentScale.FillBounds
                 )
             }
-
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .weight(0.2f)
+            ) {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 4.dp, start = 4.dp, end = 4.dp)
+                ) {
+                    Text(
+                        text = movieTitle,
+                        fontSize = 14.sp,
+                        fontFamily = FontFamily(Font(R.font.roboto_bold)),
+                        color = Color.Black
+                    )
+                }
+            }
         }
     }
 }

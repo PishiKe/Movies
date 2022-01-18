@@ -29,56 +29,6 @@ fun TvSeriesHomePage(){
     ) {
         Column(
             modifier = Modifier
-                .background(secondaryDarkColor)
-                .height(100.dp)
-                .fillMaxWidth()
-
-        ) {
-
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(top = 50.dp, start = 8.dp, end = 8.dp)
-            ) {
-                Text(
-                    text = "All",
-                    color = secondaryTextColor,
-                    modifier = Modifier.weight(0.2f),
-                    textAlign = TextAlign.Center,
-                    fontFamily = FontFamily(Font(R.font.roboto_medium))
-                )
-                Text(
-                    text = "Movies",
-                    color = secondaryTextColor,
-                    modifier = Modifier.weight(0.2f),
-                    textAlign = TextAlign.Center,
-                    fontFamily = FontFamily(Font(R.font.roboto_medium))
-                )
-                Text(
-                    text = "TV Series",
-                    color = secondaryTextColor,
-                    modifier = Modifier.weight(0.2f),
-                    textAlign = TextAlign.Center,
-                    fontFamily = FontFamily(Font(R.font.roboto_medium))
-                )
-                Text(
-                    text = "Events",
-                    color = secondaryTextColor,
-                    modifier = Modifier.weight(0.2f),
-                    textAlign = TextAlign.Center,
-                    fontFamily = FontFamily(Font(R.font.roboto_medium))
-                )
-                Text(
-                    text = "Activities",
-                    color = secondaryTextColor,
-                    modifier = Modifier.weight(0.2f),
-                    textAlign = TextAlign.Center,
-                    fontFamily = FontFamily(Font(R.font.roboto_medium))
-                )
-            }
-        }
-        Column(
-            modifier = Modifier
                 .fillMaxWidth()
                 .height(450.dp)
                 .clip(RoundedCornerShape(bottomStart = 50.dp))
@@ -115,6 +65,8 @@ fun TvSeriesHomePage(){
                     )
                 }
             }
+
+            Spacer(modifier = Modifier.height(24.dp))
 
             LazyRow(
                 modifier = Modifier

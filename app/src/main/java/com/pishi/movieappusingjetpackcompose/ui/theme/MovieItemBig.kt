@@ -27,8 +27,8 @@ fun MovieItemBig(
     Column(
         modifier = Modifier
             .height(300.dp)
-            .width(150.dp)
-            .clip( RoundedCornerShape(16.dp)),
+            .width(140.dp)
+            .clip( RoundedCornerShape(16.dp))
     ) {
         Column(
             modifier = Modifier

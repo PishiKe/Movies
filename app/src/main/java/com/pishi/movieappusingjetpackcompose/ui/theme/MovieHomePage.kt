@@ -29,15 +29,6 @@ fun MoviesHomePage(){
     ) {
         Column(
             modifier = Modifier
-                .background(Color.White)
-                .height(75.dp)
-                .fillMaxWidth()
-
-        ) {
-
-        }
-        Column(
-            modifier = Modifier
                 .fillMaxWidth()
                 .height(450.dp)
                 .clip(RoundedCornerShape(bottomStart = 50.dp))
@@ -74,7 +65,8 @@ fun MoviesHomePage(){
                     )
                 }
             }
-            
+            Spacer(modifier = Modifier.height(24.dp))
+
             LazyRow(
                 modifier = Modifier
                     .height(300.dp)
