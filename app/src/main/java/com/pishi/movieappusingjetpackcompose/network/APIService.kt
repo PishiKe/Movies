@@ -2,6 +2,7 @@ package com.pishi.movieappusingjetpackcompose.network
 
 import com.pishi.movieappusingjetpackcompose.repository.MoviesRepository
 import com.pishi.movieappusingjetpackcompose.util.Constants
+import com.pishi.movieappusingjetpackcompose.util.Constants.BASE_URL
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -38,7 +39,7 @@ class ApiService {
             .build()
 
         return Retrofit.Builder()
-            .baseUrl(Constants.BASE_URL)
+            .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .client(okHttpClient)
             .build()

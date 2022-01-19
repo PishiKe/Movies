@@ -9,7 +9,7 @@ import javax.inject.Singleton
 @Singleton
 interface MovieApi {
 
-    @GET(Constants.BASE_URL)
+    @GET(Constants.TOP_RATED_MOVIES_ENDPOINT)
     suspend fun getTopRatedMovies(
         @Query(Constants.API_KEY) api_key : String
     ) : List<TopRatedMovies>
