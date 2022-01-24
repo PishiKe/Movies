@@ -16,11 +16,14 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.pishi.movieappusingjetpackcompose.R
-import com.pishi.movieappusingjetpackcompose.model.responses.Result
-import com.pishi.movieappusingjetpackcompose.model.responses.TopRatedMovies
 
 @Composable
-fun MovieItemBig( movies : Result ){
+fun MovieItemBig(
+    img : Int,
+    movieTitle : String,
+    rating : String,
+    genre : String
+){
     Column(
         modifier = Modifier
             .height(300.dp)
@@ -32,7 +35,11 @@ fun MovieItemBig( movies : Result ){
                 .fillMaxWidth()
                 .weight(0.7f)
         ) {
-
+            Image(
+                painter = painterResource(id = img),
+                contentDescription = "Movie Poster Image",
+                contentScale = ContentScale.FillBounds
+            )
         }
         Column(
             modifier = Modifier
@@ -45,7 +52,7 @@ fun MovieItemBig( movies : Result ){
                     .padding(top = 4.dp, start = 4.dp, end = 4.dp)
             ) {
                 Text(
-                    text = movies.title,
+                    text = movieTitle,
                     fontSize = 18.sp,
                     fontFamily = FontFamily(Font(R.font.roboto_bold))
                 )
@@ -64,7 +71,7 @@ fun MovieItemBig( movies : Result ){
                 )
 
                 Text(
-                    text = "${movies.vote_average}",
+                    text = rating,
                     fontSize = 10.sp,
                     fontFamily = FontFamily(Font(R.font.roboto_light)),
                     modifier = Modifier.padding(start = 4.dp)
@@ -76,7 +83,7 @@ fun MovieItemBig( movies : Result ){
                     .padding(top = 4.dp, start = 4.dp, end = 4.dp)
             ) {
                 Text(
-                    text = movies.release_date,
+                    text = genre,
                     fontSize = 10.sp,
                     fontFamily = FontFamily(Font(R.font.roboto_light))
                 )
@@ -86,4 +93,12 @@ fun MovieItemBig( movies : Result ){
 }
 
 
-
+@Preview (showBackground = true)
+@Composable
+fun MovieItemPreview(){
+    MovieItemBig(
+        img = R.drawable.joker,
+        movieTitle = "Joker" ,
+        rating = "7/10",
+        genre = "Action")
+}

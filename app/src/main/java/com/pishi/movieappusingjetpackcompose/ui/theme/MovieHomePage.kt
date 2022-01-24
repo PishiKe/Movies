@@ -4,6 +4,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.material.rememberScaffoldState
@@ -17,13 +18,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.pishi.movieappusingjetpackcompose.R
 import com.pishi.movieappusingjetpackcompose.model.getMovieList
 import com.pishi.movieappusingjetpackcompose.viewmodel.TopRatedMoviesViewModel
+import kotlinx.coroutines.launch
 
 @Composable
 fun MoviesHomePage(
@@ -34,7 +35,6 @@ fun MoviesHomePage(
     val context = LocalContext.current
     val scaffoldState = rememberScaffoldState()
     val getTopRatedMovies = viewModel.getTopRatedMoviesMovies.observeAsState()
-
 
     Scaffold(
         modifier = Modifier.fillMaxSize(),
